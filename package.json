@@ -10,7 +10,8 @@
     "web": "expo start --web",
     "lint": "expo lint",
     "clean": "rm -rf node_modules .expo .expo-shared package-lock.json && yarn",
-    "prepare": "husky"
+    "prepare": "husky",
+    "prebuild": "expo prebuild --clean"
   },
   "dependencies": {
     "@expo/html-elements": "0.10.1",
