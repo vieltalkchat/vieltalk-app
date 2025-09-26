@@ -8,7 +8,7 @@ import { StateStorage } from 'zustand/middleware'
 export const localStorage = new MMKV({
   id: 'local-storage',
   // TODO: need add custom encryption key
-  encryptionKey: 'vieltalk-chat-mobile',
+  encryptionKey: process.env.EXPO_PUBLIC_LOCAL_STORAGE_ENCRYPTION_KEY,
 })
 
 /**

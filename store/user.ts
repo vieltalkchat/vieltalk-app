@@ -10,7 +10,7 @@ interface UserInfoModel {
 interface UserStore {
   isLoggedIn: boolean
   userInfo: UserInfoModel | null
-  setUserInfo: (user: UserInfoModel) => void
+  setUserInfo: (userInfo: UserInfoModel) => void
   setIsLoggedIn: (isLoggedIn: boolean) => void
 }
 
@@ -19,9 +19,9 @@ export const userStore = create<UserStore>()(
     (set) => ({
       isLoggedIn: false,
       userInfo: null,
-      setUserInfo: (user) =>
+      setUserInfo: (userInfo) =>
         set({
-          userInfo: user,
+          userInfo,
         }),
       setIsLoggedIn: (isLoggedIn) =>
         set({

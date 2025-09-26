@@ -8,8 +8,8 @@ export type ScreenType = Parameters<typeof Stack.Screen>[0] & { isProtected?: bo
  * @var {string} value - Path to screen file
  */
 export enum ROUTE {
-  HOME = 'index',
-  LOGIN = 'login',
+  HOME = '/',
+  LOGIN = '/login',
 }
 
 /**
