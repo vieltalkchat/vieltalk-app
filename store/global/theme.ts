@@ -1,16 +1,5 @@
 import { StateCreator } from 'zustand'
-import { GlobalStore } from './index'
-
-export enum ThemeOption {
-  LIGHT = 'light',
-  DARK = 'dark',
-  SYSTEM = 'system',
-}
-
-export interface ThemeSlice {
-  currentTheme: ThemeOption
-  setTheme: (theme: ThemeOption) => void
-}
+import { GlobalStore, ThemeOption, ThemeSlice } from './shared.types'
 
 export const createThemeSlice: StateCreator<GlobalStore, [['zustand/persist', unknown]], [], ThemeSlice> = (set) => ({
   currentTheme: ThemeOption.SYSTEM,

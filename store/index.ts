@@ -23,3 +23,5 @@ export const zustandStorage: StateStorage = {
   setItem: (key: string, value: unknown) => localStorage.set(key, stringify(value)),
   removeItem: (key: string) => localStorage.delete(key),
 }
+
+export * from './global'

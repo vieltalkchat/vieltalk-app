@@ -1,10 +1,9 @@
 import { create } from 'zustand'
 import { createJSONStorage, persist } from 'zustand/middleware'
 import { zustandStorage } from '..'
-import { createThemeSlice, ThemeSlice } from './theme'
-import { createUserSlice, UserSlice } from './user'
-
-export type GlobalStore = UserSlice & ThemeSlice
+import { GlobalStore } from './shared.types'
+import { createThemeSlice } from './theme'
+import { createUserSlice } from './user'
 
 export const useGlobalStore = create<GlobalStore>()(
   persist((...a) => ({ ...createUserSlice(...a), ...createThemeSlice(...a) }), {
@@ -12,3 +11,7 @@ export const useGlobalStore = create<GlobalStore>()(
     storage: createJSONStorage(() => zustandStorage),
   }),
 )
+
+export * from './shared.types'
+export * from './theme'
+export * from './user'
