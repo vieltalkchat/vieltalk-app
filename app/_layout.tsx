@@ -9,6 +9,9 @@ import 'react-native-reanimated'
 SplashScreen.preventAutoHideAsync()
 
 export default function RootLayout() {
+  // TODO: handle auth
+  const isLoggedIn = false
+
   useEffect(() => {
     SplashScreen.hide()
   }, [])
@@ -16,7 +19,12 @@ export default function RootLayout() {
   return (
     <GluestackUIProvider mode="light">
       <Stack>
-        <Stack.Screen name="homeScreen" options={{ title: 'Home' }} />
+        <Stack.Protected guard={isLoggedIn}>
+          <Stack.Screen name="(protected)" />
+        </Stack.Protected>
+        <Stack.Protected guard={!isLoggedIn}>
+          <Stack.Screen name="login" />
+        </Stack.Protected>
       </Stack>
       <StatusBar style="auto" />
     </GluestackUIProvider>
