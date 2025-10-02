@@ -1,5 +1,7 @@
 import { GluestackUIProvider } from '@/components'
 import '@/global.css'
+import { I18nProvider } from '@/locale'
+import { useGlobalStore } from '@/store'
 import { Stack } from 'expo-router'
 import * as SplashScreen from 'expo-splash-screen'
 import { StatusBar } from 'expo-status-bar'
@@ -9,8 +11,7 @@ import 'react-native-reanimated'
 SplashScreen.preventAutoHideAsync()
 
 export default function RootLayout() {
-  // TODO: handle auth
-  const isLoggedIn = false
+  const isLoggedIn = useGlobalStore((state) => state.isLoggedIn)
 
   useEffect(() => {
     SplashScreen.hide()
@@ -18,14 +19,16 @@ export default function RootLayout() {
 
   return (
     <GluestackUIProvider mode="light">
-      <Stack>
-        <Stack.Protected guard={isLoggedIn}>
-          <Stack.Screen name="(protected)" />
-        </Stack.Protected>
-        <Stack.Protected guard={!isLoggedIn}>
-          <Stack.Screen name="login" />
-        </Stack.Protected>
-      </Stack>
+      <I18nProvider>
+        <Stack>
+          <Stack.Protected guard={isLoggedIn}>
+            <Stack.Screen name="(protected)" />
+          </Stack.Protected>
+          <Stack.Protected guard={!isLoggedIn}>
+            <Stack.Screen name="login" />
+          </Stack.Protected>
+        </Stack>
+      </I18nProvider>
       <StatusBar style="auto" />
     </GluestackUIProvider>
   )
