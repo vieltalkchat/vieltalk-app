@@ -1,14 +1,9 @@
-import { Text } from '@/components'
 import { AppLanguage, useGlobalStore } from '@/store'
 import { i18n } from '@lingui/core'
-import { I18nProvider as DefaultI18nProvider, TransRenderProps } from '@lingui/react'
+import { I18nProvider as DefaultI18nProvider } from '@lingui/react'
 import { useEffect } from 'react'
 import { messages as enMessages } from './locales/en/messages'
 import { messages as kmMessages } from './locales/km/messages'
-
-const DefaultComponent = (props: TransRenderProps) => {
-  return <Text>{props.children}</Text>
-}
 
 export function I18nProvider({ children }: { children: React.ReactNode }) {
   const preferredLanguage = useGlobalStore((state) => state.preferredLanguage)
@@ -27,9 +22,5 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
     }
   }, [preferredLanguage])
 
-  return (
-    <DefaultI18nProvider i18n={i18n} defaultComponent={DefaultComponent}>
-      {children}
-    </DefaultI18nProvider>
-  )
+  return <DefaultI18nProvider i18n={i18n}>{children}</DefaultI18nProvider>
 }

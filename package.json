@@ -12,8 +12,8 @@
     "clean": "rm -rf node_modules .expo .expo-shared package-lock.json yarn.lock && yarn",
     "prepare": "husky",
     "prebuild": "expo prebuild --clean",
-    "extract": "lingui extract",
-    "compile": "lingui compile"
+    "extract": "lingui extract --verbose",
+    "compile": "lingui compile --typescript"
   },
   "dependencies": {
     "@expo/html-elements": "0.10.1",

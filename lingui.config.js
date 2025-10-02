@@ -9,4 +9,9 @@ export default defineConfig({
             include: ["<rootDir>"],
         },
     ],
+    format: "po",
+    orderBy: "origin",
+    fallbackLocales: {
+        "km": ["en"],
+    }
 });
