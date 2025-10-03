@@ -1,5 +1,6 @@
 import axios, { AxiosResponse, CreateAxiosDefaults, InternalAxiosRequestConfig } from 'axios'
-import CryptoJS from 'crypto-js'
+import Aes from 'react-native-aes-crypto'
+import AesGcmCrypto from 'react-native-aes-gcm-crypto'
 import { RSA } from 'react-native-rsa-native'
 
 async function requestInterceptor(config: InternalAxiosRequestConfig) {
@@ -9,17 +10,15 @@ async function requestInterceptor(config: InternalAxiosRequestConfig) {
   const body = config.data
 
   if (body) {
-    const key = CryptoJS.lib.WordArray.random(32)
-    const iv = CryptoJS.lib.WordArray.random(16)
+    const key = await Aes.randomKey(32)
 
-    const encrypted = CryptoJS.AES.encrypt(JSON.stringify(body), key, {
-      iv,
-    })
+    const encrypted = await AesGcmCrypto.encrypt(JSON.stringify(body), true, key)
 
     config.data = {
-      data: encrypted.toString(),
-      key: await RSA.encrypt(key.toString(), process.env.EXPO_PUBLIC_API_PUBLIC_KEY || ''),
-      iv: await RSA.encrypt(iv.toString(), process.env.EXPO_PUBLIC_API_PUBLIC_KEY || ''),
+      data: encrypted.content,
+      key: await RSA.encrypt(key, process.env.EXPO_PUBLIC_API_PUBLIC_KEY || ''),
+      iv: await RSA.encrypt(encrypted.iv, process.env.EXPO_PUBLIC_API_PUBLIC_KEY || ''),
+      tag: await RSA.encrypt(encrypted.tag, process.env.EXPO_PUBLIC_API_PUBLIC_KEY || ''),
     }
   }
 
