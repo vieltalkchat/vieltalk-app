@@ -13,6 +13,7 @@ module.exports = function (api) {
     ],
 
     plugins: [
+      "@lingui/babel-plugin-lingui-macro",
       [
         'module-resolver',
         {
