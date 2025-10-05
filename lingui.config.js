@@ -1,4 +1,5 @@
 import { defineConfig } from '@lingui/cli'
+import { formatter } from '@lingui/format-po'
 
 export default defineConfig({
   sourceLocale: 'en',
@@ -9,9 +10,9 @@ export default defineConfig({
       include: ['<rootDir>/app', '<rootDir>/components'],
     },
   ],
-  format: 'po',
   orderBy: 'origin',
   fallbackLocales: {
     km: ['en'],
   },
+  format: formatter({ lineNumbers: false }),
 })

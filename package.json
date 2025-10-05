@@ -65,6 +65,7 @@
   "devDependencies": {
     "@lingui/babel-plugin-lingui-macro": "^5.5.0",
     "@lingui/cli": "^5.5.0",
+    "@lingui/format-po": "^5.5.0",
     "@lingui/metro-transformer": "^5.5.0",
     "@types/lodash": "^4.17.20",
     "@types/react": "~19.1.0",

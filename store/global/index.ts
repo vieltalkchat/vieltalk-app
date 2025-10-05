@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { createJSONStorage, persist } from 'zustand/middleware'
-import { zustandStorage } from '..'
+import { zustandStorage } from '../storage'
 import { createLanguageSlice } from './language'
 import { GlobalStore } from './shared.types'
 import { createThemeSlice } from './theme'

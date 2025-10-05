@@ -5,6 +5,7 @@ TBD
 ## Table of Contents
 
 - [About](#about)
+- [Requirements](#requirements)
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -18,6 +19,10 @@ TBD
 ## About
 
 TBD
+
+## Requirements
+
+- JDK 17
 
 ## Features
 
