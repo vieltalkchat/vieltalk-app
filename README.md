@@ -6,6 +6,7 @@ TBD
 
 - [About](#about)
 - [Requirements](#requirements)
+- [Build steps](#build-steps)
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -23,6 +24,20 @@ TBD
 ## Requirements
 
 - JDK 17
+
+## Build steps
+
+```bash
+yarn
+```
+
+```bash
+yarn prebuild
+```
+
+```bash
+yarn android
+```
 
 ## Features
 
