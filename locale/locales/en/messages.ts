@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages=JSON.parse("{\"D327jO\":[\"Login Screen of Vieltalk Chat\"],\"vaySeZ\":[\"Home Screen of Vieltalk Chat\"]}")as Messages;

@@ -1,17 +1,18 @@
-import { defineConfig } from "@lingui/cli";
+import { defineConfig } from '@lingui/cli'
+import { formatter } from '@lingui/format-po'
 
 export default defineConfig({
-    sourceLocale: "en",
-    locales: ["en", "km"],
-    catalogs: [
-        {
-            path: "<rootDir>/locale/locales/{locale}/messages",
-            include: ["<rootDir>"],
-        },
-    ],
-    format: "po",
-    orderBy: "origin",
-    fallbackLocales: {
-        "km": ["en"],
-    }
-});
+  sourceLocale: 'en',
+  locales: ['en', 'km'],
+  catalogs: [
+    {
+      path: '<rootDir>/locale/locales/{locale}/messages',
+      include: ['<rootDir>/app', '<rootDir>/components'],
+    },
+  ],
+  orderBy: 'origin',
+  fallbackLocales: {
+    km: ['en'],
+  },
+  format: formatter({ lineNumbers: false }),
+})
