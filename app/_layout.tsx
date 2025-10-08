@@ -1,4 +1,4 @@
-import { GluestackUIProvider } from '@/components'
+import { GluestackUIProvider, QueryClientProvider } from '@/components'
 import '@/global.css'
 import { I18nProvider } from '@/locale'
 import { useGlobalStore } from '@/store'
@@ -18,18 +18,20 @@ export default function RootLayout() {
   }, [])
 
   return (
-    <GluestackUIProvider mode="light">
-      <I18nProvider>
-        <Stack>
-          <Stack.Protected guard={isLoggedIn}>
-            <Stack.Screen name="(protected)" />
-          </Stack.Protected>
-          <Stack.Protected guard={!isLoggedIn}>
-            <Stack.Screen name="login" />
-          </Stack.Protected>
-        </Stack>
-      </I18nProvider>
-      <StatusBar style="auto" />
-    </GluestackUIProvider>
+    <QueryClientProvider>
+      <GluestackUIProvider mode="light">
+        <I18nProvider>
+          <Stack>
+            <Stack.Protected guard={isLoggedIn}>
+              <Stack.Screen name="(protected)" />
+            </Stack.Protected>
+            <Stack.Protected guard={!isLoggedIn}>
+              <Stack.Screen name="login" />
+            </Stack.Protected>
+          </Stack>
+        </I18nProvider>
+        <StatusBar style="auto" />
+      </GluestackUIProvider>
+    </QueryClientProvider>
   )
 }
