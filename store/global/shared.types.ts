@@ -17,8 +17,18 @@ export enum ThemeOption {
 }
 
 export interface ThemeSlice {
-  currentTheme: ThemeOption
+  theme: ThemeOption
   setTheme: (theme: ThemeOption) => void
 }
 
-export type GlobalStore = UserSlice & ThemeSlice
+export enum AppLanguage {
+  EN = 'en',
+  KM = 'km',
+}
+
+export interface LanguageSlice {
+  preferredLanguage: AppLanguage
+  setPreferredLanguage: (language: AppLanguage) => void
+}
+
+export type GlobalStore = UserSlice & ThemeSlice & LanguageSlice
