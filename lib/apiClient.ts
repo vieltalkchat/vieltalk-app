@@ -16,7 +16,7 @@ async function requestInterceptor(config: AxiosConfigWithMetadata) {
 
   const axiosId = uuidv4()
 
-  console.debug('outbound request', {
+  console.log('outbound request', {
     baseUrl: config.baseURL,
     method: config.method,
     data: config.data,
@@ -49,7 +49,7 @@ async function requestInterceptor(config: AxiosConfigWithMetadata) {
 }
 
 function responseInterceptor(response: AxiosResponse) {
-  console.debug('outbound response success', {
+  console.log('outbound response success', {
     baseUrl: response.config.baseURL,
     url: response.config.url,
     status: `${response.status}:${response.statusText}`,
@@ -67,7 +67,7 @@ function responseErrorInterceptor(error: any) {
 
   if (error instanceof Error) {
     const axiosError = error as AxiosError
-    console.debug('outbound response failure', {
+    console.log('outbound response failure', {
       baseUrl: axiosError?.response?.config.baseURL,
       url: axiosError?.response?.config.url,
       status: axiosError.response?.status,
