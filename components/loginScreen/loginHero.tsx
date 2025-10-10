@@ -1,6 +1,9 @@
-import { Box, Heading, Text, VStack } from '@/components'
 import { Asset } from 'expo-asset'
 import { Image } from 'expo-image'
+import { Box } from '../ui/box'
+import { Heading } from '../ui/heading'
+import { Text } from '../ui/text'
+import { VStack } from '../ui/vstack'
 
 export function LoginHero() {
   return (

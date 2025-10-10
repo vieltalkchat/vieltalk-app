@@ -1,4 +1,4 @@
-import { zustandStorage } from '@/lib'
+import { zustandStorage } from '@/lib/storage'
 import { create } from 'zustand'
 import { createJSONStorage, persist } from 'zustand/middleware'
 import { createLanguageSlice } from './language'
