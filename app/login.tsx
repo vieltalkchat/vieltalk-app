@@ -1,8 +1,7 @@
-import { Box, Button, ButtonText, VStack } from '@/components'
+import { Box, Button, ButtonText, LoginHero, VStack } from '@/components'
 import { LoginScreenProvider } from '@/contexts'
 import { Trans } from '@lingui/react/macro'
 import { Stack } from 'expo-router'
-import Animated from 'react-native-reanimated'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
 export default function LoginScreen() {
@@ -12,9 +11,7 @@ export default function LoginScreen() {
       <LoginScreenProvider>
         <SafeAreaView className="flex-1">
           <VStack className="flex-1">
-            <Box className="relative flex-1">
-              <Animated.View className="size-10 bg-primary-400"></Animated.View>
-            </Box>
+            <LoginHero />
             <Box className="p-4">
               <Button size="xl">
                 <ButtonText>

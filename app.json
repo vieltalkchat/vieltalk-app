@@ -49,6 +49,12 @@
             "minSdkVersion": 26
           }
         }
+      ],
+      [
+        "expo-asset",
+        {
+          "assets": ["./assets"]
+        }
       ]
     ],
     "experiments": {
