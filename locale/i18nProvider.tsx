@@ -1,4 +1,4 @@
-import { AppLanguage, useGlobalStore } from '@/store'
+import { AppLanguage, useGlobalStore } from '@/store/global/store'
 import { i18n } from '@lingui/core'
 import { I18nProvider as DefaultI18nProvider } from '@lingui/react'
 import { useEffect } from 'react'

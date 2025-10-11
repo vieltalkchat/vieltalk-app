@@ -1,3 +1,4 @@
+import { Trans } from '@lingui/react/macro'
 import { Asset } from 'expo-asset'
 import { Image } from 'expo-image'
 import { Box } from '../ui/box'
@@ -14,17 +15,18 @@ export function LoginHero() {
         <Box className="absolute left-1/2 top-1/2 size-[250px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-dashed border-outline-400">
           <Image
             source={Asset.fromModule(require('@/assets/images/icon.png'))}
-            style={{ width: 150, height: 150 }}
+            style={{ width: 120, height: 120 }}
             contentFit="contain"
           />
-          {/* <Box className="size-20 bg-red-500"></Box> */}
         </Box>
       </Box>
-      <VStack className="p-4" space="xs">
+      <VStack className="p-4" space="md">
         <Heading size="xl" className="text-center">
-          Welcome to VielTalk
+          <Trans>Welcome to VielTalk</Trans>
         </Heading>
-        <Text className="text-center text-sm">Built for connection, not collection.</Text>
+        <Text className="px-4 text-center text-sm">
+          <Trans>Connect freely — where every conversation starts with privacy and speed.</Trans>
+        </Text>
       </VStack>
     </>
   )

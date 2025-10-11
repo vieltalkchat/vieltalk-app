@@ -1,4 +1,5 @@
-import { Box, Text } from '@/components'
+import { Box } from '@/components/ui/box'
+import { Text } from '@/components/ui/text'
 import { Trans } from '@lingui/react/macro'
 
 export default function HomeScreen() {
